@@ -55,6 +55,7 @@ app.get('/help/*', (req,res)=>{
     })
 })
 
+
 // Error 404
 app.get('*', (req,res)=> {
     res.render('404', {
