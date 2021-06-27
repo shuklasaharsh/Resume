@@ -15,7 +15,7 @@ app.set('views', viewsPath)
 hbs.registerPartials(partialsPath)
 //Setup Static directory to serve
 app.use(express.static(htmlPath))
-
+//Routes
 app.get('/weather', (req,res)=>{
     const body = {
         forecast: 'Something',
@@ -44,6 +44,23 @@ app.get('/help', (req,res)=>{
         message: 'How can we help you?',
         title: 'Help',
         name: 'Saharsh Shukla'
+    })
+})
+
+app.get('/help/*', (req,res)=>{
+    res.render('404', {
+        name: 'Saharsh Shukla',
+        title: 'Error 404',
+        errorMessage: 'Error Occurred - Help not found'
+    })
+})
+
+// Error 404
+app.get('*', (req,res)=> {
+    res.render('404', {
+        name: 'Saharsh Shukla',
+        title: 'Error 404',
+        errorMessage: 'Error occurred'
     })
 })
 app.listen(3000, ()=> {
