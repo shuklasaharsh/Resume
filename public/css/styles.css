@@ -159,10 +159,10 @@ button {
 }
 
 .ProjectClass {
-    width: fit-content;
+    width: 100%;
+    padding: 16px;
     display: flex;
     margin: 32px;
-    padding: 8px;
     border: 1px solid #dddddd;
     text-decoration: none;
 }
