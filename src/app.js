@@ -3,10 +3,10 @@ const path = require('path')
 // NPM modules
 const express = require('express')
 const hbs = require('hbs')
-const request = require('postman-request')
 // Files
 const getGeocode = require('../utils/getGeocode')
 const getWeather = require('../utils/getWeather')
+const mailUtilities = require('../utils/mailUtilities')
 const app = express()
 //Define Paths for Express Configuration
 
@@ -64,14 +64,8 @@ app.get('/projects', (req,res)=>{
         projectLink12: 'https://github.com/shuklasaharsh/Leaf-Classifier'
     })
 })
-//HELP ERROR
-app.get('/help/*', (req,res)=>{
-    res.render('404', {
-        name: 'Saharsh Shukla',
-        title: 'Error 404',
-        errorMessage: 'Error Occurred - Help not found'
-    })
-})
+
+
 //WEATHER
 app.get('/weather', (req,res)=> {
     if (!req.query.location) {
@@ -97,6 +91,19 @@ app.get('/weather', (req,res)=> {
         location: req.query.location,
         forecast: "This is the forecast"
     })*/
+})
+
+//MAIL
+app.get('/help/mail', (req,res)=>{
+    if (!req.query.mailString) {
+        return res.send({
+            error: 'Null Help Error'
+        })
+    }
+    const sendTo = 'saharsh.shukla2018@vitstudent.ac.in'
+    mailUtilities.sendMailTo(sendTo,req.query.mailString,req.query.mailSubject, (info)=>{
+        res.send(info)
+    })
 })
 
 
