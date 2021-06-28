@@ -117,6 +117,15 @@ app.get('*', (req,res)=> {
         contactMe: 'If this is a mistake please get in touch'
     })
 })
+
+app.get('*/*', (req,res)=> {
+    res.render('404', {
+        name: 'Saharsh Shukla',
+        title: 'Error 404',
+        errorOOPS: 'OOPS!, This page does not exist',
+        contactMe: 'If this is a mistake please get in touch'
+    })
+})
 app.listen(port, ()=> {
     console.log("Server is Running on port " + port)
 })
