@@ -4,7 +4,6 @@ const geocodeConstants = CONSTANTS.geocodeConstants
 
 const getGeocode = (address, callback) => {
     const url = geocodeConstants.baseurl + encodeURIComponent(address) + '.json?' + geocodeConstants.api + '&limit1'
-    console.log(url)
     requests({url: url, json: true}, (error, {body}={}) => {
         try {
             const location = {

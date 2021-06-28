@@ -24,7 +24,7 @@ app.use(express.static(htmlPath))
 // INDEX
 app.get('', (req,res)=>{
     res.render('index', {
-        title: 'Weather app',
+        title: 'Saharsh Shukla',
 
         name: 'Saharsh Shukla'
     })
@@ -32,16 +32,24 @@ app.get('', (req,res)=>{
 // ABOUT
 app.get('/about', (req,res)=>{
     res.render('about', {
-        title: 'About me',
+        title: 'About',
         name: 'Saharsh Shukla'
     })
 })
 // HELP
 app.get('/help', (req,res)=>{
     res.render('help', {
-        message: 'How can we help you?',
+        message: 'How can I help you?',
         title: 'Help',
         name: 'Saharsh Shukla'
+    })
+})
+// Projects
+app.get('/projects', (req,res)=>{
+    res.render('projects', {
+        title: 'Projects',
+        name: 'Saharsh Shukla',
+        message: 'A dash of Data science and a tiny sprinkle of MERN'
     })
 })
 //HELP ERROR
@@ -60,7 +68,12 @@ app.get('/weather', (req,res)=> {
         })
     }
     getGeocode(req.query.location, (error, body)=>{
-        getWeather(body,(error, {temperature, feelsLike, precipitation, currentTime})=>{
+        getWeather(body,(error, {temperature, feelsLike, precipitation, currentTime} = {})=>{
+            if (error) {
+                return res.send({
+                    error: error
+                })
+            }
             res.send({
                 temperature, feelsLike, precipitation, currentTime,
                 location: body
@@ -80,7 +93,8 @@ app.get('*', (req,res)=> {
     res.render('404', {
         name: 'Saharsh Shukla',
         title: 'Error 404',
-        errorMessage: 'Error occurred'
+        errorOOPS: 'OOPS!, This page does not exist',
+        contactMe: 'If this is a mistake please get in touch'
     })
 })
 app.listen(3000, ()=> {

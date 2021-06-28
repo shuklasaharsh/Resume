@@ -15,7 +15,6 @@ const weatherConstants = CONSTANTS.weatherConstants
 const getWeatherData = ({latitude, longitude} = {}, callback) => {
     let query = latitude + ',' + longitude
     const url = weatherConstants.baseurl + weatherConstants.api + '&query=' + (query) + '&units=m'
-    console.log(url)
     requests({url: url, json: true}, (error, {body}={})=> {
         try {
             const data = {

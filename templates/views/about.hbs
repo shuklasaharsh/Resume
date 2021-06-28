@@ -1,17 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet", href="./css/styles.css">
-    <link rel="icon" href="./img/weather.png">
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="icon" href="./img/weather.png">
     <title>About Me</title>
 </head>
 <body>
-{{>header}}
 <div class="main-content">
-<img src="img/image.jpeg" class="personal-portrait">
-<p>Created by {{name}}</p>
+    {{>header}}
+    <p id="Name-About">{{name}}</p>
+    <img src="img/image.jpeg" class="personal-portrait">
+    <div><hr id="About-Dots"></div>
+    <p id="Greeting">Hi,</p>
+    <p id="Greeting-Subtitle">I am a backend Developer</p>
+    <p id="Greeting-Subtitle-Subtitle">With a speciality in Data Science</p>
+    <p id="About-Main">
+    <ul>
+    <li>Check out my <a href="https://www.github.com/shuklasaharsh" class="main-links">github</a></li>
+    <br>
+    <script src="https://gist.github.com/shuklasaharsh/911fe56d1c6e0234a04b2de2ae5719ca.js" id="code-about"></script>
+    <br>
+    <li>Check out my <a href="/projects" class="main-links">Projects</a></li>
+    </ul>
+    </p>
 </div>
+
 {{>footer}}
 </body>
 </html>
