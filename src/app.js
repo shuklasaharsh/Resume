@@ -49,7 +49,19 @@ app.get('/projects', (req,res)=>{
     res.render('projects', {
         title: 'Projects',
         name: 'Saharsh Shukla',
-        message: 'A dash of Data science and a tiny sprinkle of MERN'
+        message: 'A dash of Data science and a tiny sprinkle of MERN',
+        projectLink1: 'https://github.com/shuklasaharsh/Oil-Price-Analysis-Data',
+        projectLink2: 'https://github.com/shuklasaharsh/IOT_Temperatur_ESP8266',
+        projectLink3: 'https://github.com/shuklasaharsh/Vaccine-Notification',
+        projectLink4: 'https://github.com/shuklasaharsh/Brain-Tumor-Detection/',
+        projectLink5: 'https://github.com/shuklasaharsh/Error-Handling',
+        projectLink6: 'https://github.com/shuklasaharsh/web-server',
+        projectLink7: 'https://github.com/shuklasaharsh/LSTM-NN-TSP',
+        projectLink8: 'https://github.com/shuklasaharsh/RNN-TSP',
+        projectLink9: 'https://github.com/shuklasaharsh/Stock-Market',
+        projectLink10: 'https://github.com/shuklasaharsh/tensor-emoji-python',
+        projectLink11: 'https://github.com/shuklasaharsh/DSP2',
+        projectLink12: 'https://github.com/shuklasaharsh/Leaf-Classifier'
     })
 })
 //HELP ERROR

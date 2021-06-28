@@ -32,6 +32,7 @@ header h1 {
     font-size: 48px;
     margin-bottom: 16px;
     display: inline-block;
+    width: 10%;
 }
 
 
@@ -56,11 +57,26 @@ footer a {
 }
 
 .personal-portrait {
-    width: 300px;
+    width: 40%;
     border-radius: 50%;
     margin-left: auto;
     margin-right: auto;
     display: block;
+}
+
+.post-head {
+    color: #888888;
+    text-decoration: none;
+}
+
+.post-left-body {
+    color: #444444;
+    text-decoration: none;
+}
+
+.post-right-body {
+    color: #444444;
+    text-decoration: none;
 }
 
 .main-content {
@@ -140,4 +156,17 @@ button {
 
 #c4-ico {
     border-radius: 50%;
+}
+
+.ProjectClass {
+    width: fit-content;
+    display: flex;
+    margin: 32px;
+    padding: 8px;
+    border: 1px solid #dddddd;
+    text-decoration: none;
+}
+
+.ProjectClass a {
+    text-decoration: none;
 }
