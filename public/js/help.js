@@ -11,7 +11,7 @@ helpForm.addEventListener('submit', (e)=>{
     let sendData = send.value + '\n\nEMAIL:' + email.value
     console.log(sendData)
     messageHelp.textContent = "Loading..."
-    const mailURL = 'http://localhost:3000/help/mail?mailString=' + send.value + '&mailSubject=' + subject.value
+    const mailURL = '/help/mail?mailString=' + send.value + '&mailSubject=' + subject.value
     fetch(mailURL).then((response)=>{
         response.then((data)=>{
             messageHelp.textContent = data

@@ -8,6 +8,7 @@ const getGeocode = require('../utils/getGeocode')
 const getWeather = require('../utils/getWeather')
 const mailUtilities = require('../utils/mailUtilities')
 const app = express()
+const port = process.env.PORT || 3000
 //Define Paths for Express Configuration
 
 const htmlPath = path.join(__dirname, '../public')
@@ -116,9 +117,6 @@ app.get('*', (req,res)=> {
         contactMe: 'If this is a mistake please get in touch'
     })
 })
-app.listen(3000, ()=> {
-    console.log("Server is Running on port 3000")
+app.listen(port, ()=> {
+    console.log("Server is Running on port " + port)
 })
-
-console.log(viewsPath)
-console.log(path.join(__dirname, '../templates/partials'))
