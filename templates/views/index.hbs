@@ -2,14 +2,36 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet", href="./css/styles.css">
-    <script src = "./js/app.js"></script>
-    <title>WeatherHeap.org</title>
+    <meta name="viewport" content="width=device-width">
+
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="icon" href="./img/weather.png">
+
+    <title>Home</title>
 </head>
-<body>
-{{>header}}
-<p>Created by {{name}} as a learning project</p>
+<body class="animate__animated animate__fadeIn animate__delay-0.5s">
+<div class="main-content">
+    {{>header}}
+    <p id="Greeting" align="center">Hi,</p>
+    <p id="Greeting-Subtitle" align="center">Welcome to my Website</p>
+    <p align="center"><img src="https://github-readme-streak-stats.herokuapp.com?user=shuklasaharsh&hide_border=true&fire=2389DD&ring=329BDD&theme=light" align="center"></p>
+    <p align="center"><img src="https://github-readme-stats.vercel.app/api?username=shuklasaharsh&theme=light&hide_border=true"></p>
+    <p align="center"><h2 align="center"><a href="/projects" class="main-links">Visit My Project page</a></h2></p>
+    <br>
+    <br>
+    <form>
+        <input placeholder="Search For Location">
+        <button>Search</button>
+    </form>
+    <p id="message-location"></p>
+    <p id="message-forecast"></p>
+</div>
+
 {{>footer}}
+<script src="./js/app.js"></script>
 </body>
 </html>

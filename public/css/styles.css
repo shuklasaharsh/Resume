@@ -1,7 +1,172 @@
-h1 {
-    color: grey;
+@import url('https://cdn.rawgit.com/lonekorean/gist-syntax-themes/d49b91b3/stylesheets/one-dark.css');
+
+body {
+    color: #333333;
+    font-family: "Lucida Grande", serif;
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 0 16px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-img {
-    width: 250px;
+li {
+    list-style-type: disc;
+    color: #111111;
+}
+
+footer {
+    color: #888888;
+    margin-top: 16px;
+    padding: 16px 0;
+}
+
+header {
+    margin-top: 16px;
+    margin-bottom: 48px;
+    color: #333333;
+}
+
+header h1 {
+    font-size: 48px;
+    margin-bottom: 16px;
+    display: inline-block;
+    width: 10%;
+}
+
+
+header img {
+    margin-bottom: 16px;
+    margin-top: 42px;
+    margin-left: 8px;
+    display: inline-block;
+
+}
+
+header a {
+    color: #888888;
+    margin-right: 16px;
+    text-decoration: none;
+}
+
+footer a {
+    color: #888888;
+    margin-right: 16px;
+    text-decoration: none;
+}
+
+.personal-portrait {
+    width: 40%;
+    border-radius: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.post-head {
+    color: #888888;
+    text-decoration: none;
+}
+
+.post-left-body {
+    color: #444444;
+    text-decoration: none;
+}
+
+.post-right-body {
+    color: #444444;
+    text-decoration: none;
+}
+
+.main-content {
+    flex-grow: 1;
+    animation: ease-in;
+    animation-delay: initial;
+    animation-duration: 2s;
+}
+
+.main-links {
+    color: #888888;
+    text-decoration: none;
+}
+
+input {
+    border: 1px solid #cccccc;
+    padding: 8px;
+}
+
+button {
+    cursor: pointer;
+    border: 1px solid #888888;
+    background: #888888;
+    padding: 8px;
+    color: white;
+}
+
+#Greeting {
+    font-size: 64px;
+    margin: 0px;
+}
+#Greeting-Subtitle {
+    font-size: 32px;
+    margin-bottom: 0px;
+}
+
+#Greeting-Subtitle-Subtitle {
+    margin: 0px;
+    padding: 0px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#Name-About {
+    font-size: 48px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    align-content: center;
+}
+
+#About-Dots {
+    width: 8%;
+    border-top: 10px dotted #888888;
+    border-top-radius: 10px;
+    border-bottom: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    padding-bottom: 8px;
+    margin-top: 32px;
+}
+
+#code-about {
+    padding: 64px;
+}
+
+#projects-message {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+#OOPS-404 {
+    font-size: 64px;
+    color: #000047;
+    font-family: "Courier New";
+}
+
+#c4-ico {
+    border-radius: 50%;
+}
+
+.ProjectClass {
+    width: fit-content;
+    display: flex;
+    margin: 32px;
+    padding: 8px;
+    border: 1px solid #dddddd;
+    text-decoration: none;
+}
+
+.ProjectClass a {
+    text-decoration: none;
 }

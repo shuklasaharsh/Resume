@@ -1,14 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet", href="./css/styles.css">
     <meta charset="UTF-8">
-    <title>Contact Us</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="icon" href="./img/weather.png">
+    <title>Get in Touch</title>
 </head>
-<body>
-{{>header}}
-<h1>Contact us for help</h1>
-<p>{{message}}</p>
+<body class="animate__animated animate__fadeIn animate__delay-0.5s">
+<div class="main-content">
+    {{>header}}
+    <h1 class="animate__animated animate__fadeIn">Get in Touch</h1>
+    <p>{{message}}</p>
+</div>
+
 {{>footer}}
 </body>
 </html>

@@ -3,6 +3,10 @@ const path = require('path')
 // NPM modules
 const express = require('express')
 const hbs = require('hbs')
+const request = require('postman-request')
+// Files
+const getGeocode = require('../utils/getGeocode')
+const getWeather = require('../utils/getWeather')
 const app = express()
 //Define Paths for Express Configuration
 
@@ -15,18 +19,12 @@ app.set('views', viewsPath)
 hbs.registerPartials(partialsPath)
 //Setup Static directory to serve
 app.use(express.static(htmlPath))
+//Routes
 
-app.get('/weather', (req,res)=>{
-    const body = {
-        forecast: 'Something',
-        location: 'Something2'
-    }
-    res.send(body)
-})
 // INDEX
 app.get('', (req,res)=>{
     res.render('index', {
-        title: 'Weather app',
+        title: 'Saharsh Shukla',
 
         name: 'Saharsh Shukla'
     })
@@ -34,16 +32,81 @@ app.get('', (req,res)=>{
 // ABOUT
 app.get('/about', (req,res)=>{
     res.render('about', {
-        title: 'About me',
+        title: 'About',
         name: 'Saharsh Shukla'
     })
 })
 // HELP
 app.get('/help', (req,res)=>{
     res.render('help', {
-        message: 'How can we help you?',
+        message: 'How can I help you?',
         title: 'Help',
         name: 'Saharsh Shukla'
+    })
+})
+// Projects
+app.get('/projects', (req,res)=>{
+    res.render('projects', {
+        title: 'Projects',
+        name: 'Saharsh Shukla',
+        message: 'A dash of Data science and a tiny sprinkle of MERN',
+        projectLink1: 'https://github.com/shuklasaharsh/Oil-Price-Analysis-Data',
+        projectLink2: 'https://github.com/shuklasaharsh/IOT_Temperatur_ESP8266',
+        projectLink3: 'https://github.com/shuklasaharsh/Vaccine-Notification',
+        projectLink4: 'https://github.com/shuklasaharsh/Brain-Tumor-Detection/',
+        projectLink5: 'https://github.com/shuklasaharsh/Error-Handling',
+        projectLink6: 'https://github.com/shuklasaharsh/web-server',
+        projectLink7: 'https://github.com/shuklasaharsh/LSTM-NN-TSP',
+        projectLink8: 'https://github.com/shuklasaharsh/RNN-TSP',
+        projectLink9: 'https://github.com/shuklasaharsh/Stock-Market',
+        projectLink10: 'https://github.com/shuklasaharsh/tensor-emoji-python',
+        projectLink11: 'https://github.com/shuklasaharsh/DSP2',
+        projectLink12: 'https://github.com/shuklasaharsh/Leaf-Classifier'
+    })
+})
+//HELP ERROR
+app.get('/help/*', (req,res)=>{
+    res.render('404', {
+        name: 'Saharsh Shukla',
+        title: 'Error 404',
+        errorMessage: 'Error Occurred - Help not found'
+    })
+})
+//WEATHER
+app.get('/weather', (req,res)=> {
+    if (!req.query.location) {
+        return res.send({
+            error: 'Null Location Error: please send a valid location'
+        })
+    }
+    getGeocode(req.query.location, (error, body)=>{
+        getWeather(body,(error, {temperature, feelsLike, precipitation, currentTime} = {})=>{
+            if (error) {
+                return res.send({
+                    error: error
+                })
+            }
+            res.send({
+                temperature, feelsLike, precipitation, currentTime,
+                location: body
+            })
+        })
+    })
+
+/*    res.send({
+        location: req.query.location,
+        forecast: "This is the forecast"
+    })*/
+})
+
+
+// Error 404
+app.get('*', (req,res)=> {
+    res.render('404', {
+        name: 'Saharsh Shukla',
+        title: 'Error 404',
+        errorOOPS: 'OOPS!, This page does not exist',
+        contactMe: 'If this is a mistake please get in touch'
     })
 })
 app.listen(3000, ()=> {
