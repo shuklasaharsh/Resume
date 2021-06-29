@@ -50,7 +50,7 @@ app.get('/projects', (req,res)=>{
     res.render('projects', {
         title: 'Projects',
         name: 'Saharsh Shukla',
-        message: 'A dash of Data science and a tiny sprinkle of MERN',
+        message: 'A dash of Data Science and a tiny sprinkle of MERN Stack',
         projectLink1: 'https://github.com/shuklasaharsh/Oil-Price-Analysis-Data',
         projectLink2: 'https://github.com/shuklasaharsh/IOT_Temperatur_ESP8266',
         projectLink3: 'https://github.com/shuklasaharsh/Vaccine-Notification',
