@@ -23,7 +23,7 @@ form.addEventListener('submit', (e)=>{
 })
 const sendMail = (mail, Reply) => {
     Reply.textContent = 'Loading..'
-    fetch("shuklasaharsh.herokuapp.com/send", {
+    fetch("/send", {
         method: "post",
         body: mail,
     }).then((response) => {
