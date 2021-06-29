@@ -4,9 +4,9 @@ const path = require('path')
 const express = require('express')
 const hbs = require('hbs')
 // Files
-const getGeocode = require('../utils/getGeocode')
-const getWeather = require('../utils/getWeather')
-const mailUtilities = require('../utils/mailUtilities')
+const {Account} = require('../data/CONSTANTS')
+const nodemailer = require("nodemailer");
+const multiparty = require("multiparty");
 const app = express()
 const port = process.env.PORT || 3000
 //Define Paths for Express Configuration
@@ -67,7 +67,6 @@ app.get('/projects', (req,res)=>{
     })
 })
 
-
 //WEATHER
 app.get('/weather', (req,res)=> {
     if (!req.query.location) {
@@ -96,17 +95,45 @@ app.get('/weather', (req,res)=> {
 })
 
 //MAIL
-app.get('/help/mail', (req,res)=>{
-    if (!req.query.mailString) {
-        return res.send({
-            error: 'Null Help Error'
-        })
+const transporter = nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+        user: process.env.EMAIL || Account.user,
+        pass: process.env.PASS || Account.pass,
+    },
+});
+transporter.verify(function (error, success) {
+    if (error) {
+        console.log(error);
+    } else {
+        console.log("Server is ready to take our messages");
     }
-    const sendTo = 'saharsh.shukla2018@vitstudent.ac.in'
-    mailUtilities.sendMailTo(sendTo,req.query.mailString,req.query.mailSubject, (info)=>{
-        res.send(info)
-    })
-})
+});
+app.post("/send", (req, res) => {
+    let form = new multiparty.Form();
+    let data = {};
+    form.parse(req, function (err, fields) {
+        console.log(fields);
+        Object.keys(fields).forEach(function (property) {
+            data[property] = fields[property].toString();
+        });
+        console.log(data);
+        const mail = {
+            sender: `${data.name} <${data.email}>`,
+            to: process.env.EMAIL || 'saharsh.shukla2018@vitstudent.ac.in', // receiver email,
+            subject: data.subject,
+            text: `${data.name} <${data.email}> \n${data.message}`,
+        };
+        transporter.sendMail(mail, (err, data) => {
+            if (err) {
+                console.log(err);
+                res.status(500).send("Something went wrong.");
+            } else {
+                res.status(200).json({status: 'success'});
+            }
+        });
+    });
+});
 
 
 // Error 404

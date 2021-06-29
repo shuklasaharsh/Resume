@@ -350,3 +350,15 @@ button {
     border-radius: 3px;
 }
 
+.CoverImage img{
+    width: 100%;
+    height: auto;
+}
+
+#message-help {
+    color: #ffffff;
+    background-color: #333333;
+    font-weight: bold;
+    font-size: 32px;
+}
+
