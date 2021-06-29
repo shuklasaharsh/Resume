@@ -10,7 +10,7 @@ form.addEventListener("submit", (event) => {
     let mail = new FormData(form);
 
     //3.
-    sendMail(mail, Reply)
+    sendMail(mail)
 
 
 })
@@ -18,19 +18,17 @@ form.addEventListener("submit", (event) => {
 form.addEventListener('submit', (e)=>{
     e.preventDefault();
     let mail = new FormData(form);
-    sendMail(mail, (call)=>{
-        console.log(call)
-    })
+    sendMail(mail, Reply)
 
 })
 const sendMail = (mail, Reply) => {
-    Reply.textContent = 'Loading...'
+    Reply.textContent = 'Loading..'
     fetch("/send", {
         method: "post",
         body: mail,
     }).then((response) => {
-        response.json().then((data) =>{
-            return Reply.textContent = 'Mail sent successfully!'
-        })
+        const call= 'Successfully sent mail.'
+        Reply.textContent = call;
+        return response.json();
     });
 };
