@@ -26,7 +26,7 @@ weatherForm.addEventListener('submit',(e)=>{
                 return console.log(data.error)
             }
             messageLocation.textContent = 'Location: ' + data.location.location + ' Coordinates: ' + data.location.coordinates
-            messageForecast.textContent = 'It is currently ' + data.currentTime + ' in Boston and the temperature is ' + data.temperature +
+            messageForecast.textContent = 'It is currently ' + data.currentTime + ' in ' + location + ' and the temperature is ' + data.temperature +
                 ' it feels like ' + data.feelsLike + ' with a ' + data.precipitation + ' precipitation value.'
         })
     })

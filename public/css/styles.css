@@ -184,7 +184,7 @@ button {
 .link-block {
     position: relative;
     width: 30%;
-    min-height: 400px;
+    min-height: 375px;
     text-align: center;
     margin: 20px auto;
     background-color: #f0f0f0;
@@ -268,6 +268,7 @@ button {
 .webinar-content-box p {
     padding: 0 0 20px 0;
     color: #6a6a6a;
+    height: 64px;
 }
 
 .webinar-content-box a {
@@ -332,5 +333,18 @@ button {
 .crop {
     width: 351px;
     height: 136px;
+}
+
+.icons {
+    color: #eeeeee;
+    background-color: #333333;
+}
+.iconImage {
+    margin: 8px;
+}
+
+#jupyter {
+    background-color: #ffffff;
+    border-radius: 3px;
 }
 
