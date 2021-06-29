@@ -296,6 +296,7 @@ button {
         position: relative;
         width: 45%;
         max-width: 330px;
+        min-height: 375px;
     }
     .link-block .dundas-blue-text-long {
         font-size: 22px;
@@ -310,6 +311,7 @@ button {
         position: relative;
         width: 90%;
         max-width: 300px;
+        min-height: 375px;
     }
     .link-block .dundas-blue-text-long {
         font-size: 18px;
