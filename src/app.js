@@ -8,6 +8,7 @@ const getGeocode = require('../utils/getGeocode')
 const getWeather = require('../utils/getWeather')
 const mailUtilities = require('../utils/mailUtilities')
 const app = express()
+const port = process.env.PORT || 3000
 //Define Paths for Express Configuration
 
 const htmlPath = path.join(__dirname, '../public')
@@ -49,13 +50,14 @@ app.get('/projects', (req,res)=>{
     res.render('projects', {
         title: 'Projects',
         name: 'Saharsh Shukla',
-        message: 'A dash of Data science and a tiny sprinkle of MERN',
+        message: 'A dash of Data Science and a tiny sprinkle of MERN Stack',
         projectLink1: 'https://github.com/shuklasaharsh/Oil-Price-Analysis-Data',
         projectLink2: 'https://github.com/shuklasaharsh/IOT_Temperatur_ESP8266',
         projectLink3: 'https://github.com/shuklasaharsh/Vaccine-Notification',
+        projectLink3b: 'https://github.com/shuklasaharsh/COVID19',
         projectLink4: 'https://github.com/shuklasaharsh/Brain-Tumor-Detection/',
         projectLink5: 'https://github.com/shuklasaharsh/Error-Handling',
-        projectLink6: 'https://github.com/shuklasaharsh/web-server',
+        projectLink6: '/weather?location=Mumbai',
         projectLink7: 'https://github.com/shuklasaharsh/LSTM-NN-TSP',
         projectLink8: 'https://github.com/shuklasaharsh/RNN-TSP',
         projectLink9: 'https://github.com/shuklasaharsh/Stock-Market',
@@ -116,9 +118,15 @@ app.get('*', (req,res)=> {
         contactMe: 'If this is a mistake please get in touch'
     })
 })
-app.listen(3000, ()=> {
-    console.log("Server is Running on port 3000")
-})
 
-console.log(viewsPath)
-console.log(path.join(__dirname, '../templates/partials'))
+app.get('*/*', (req,res)=> {
+    res.render('404', {
+        name: 'Saharsh Shukla',
+        title: 'Error 404',
+        errorOOPS: 'OOPS!, This page does not exist',
+        contactMe: 'If this is a mistake please get in touch'
+    })
+})
+app.listen(port, ()=> {
+    console.log("Server is Running on port " + port)
+})
