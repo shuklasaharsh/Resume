@@ -98,8 +98,8 @@ app.get('/weather', (req,res)=> {
 const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-        user: process.env.EMAIL || Account.user,
-        pass: process.env.PASS || Account.pass,
+        user: Account.user,
+        pass: Account.pass,
     },
 });
 transporter.verify(function (error, success) {
@@ -120,7 +120,7 @@ app.post("/send", (req, res) => {
         console.log(data);
         const mail = {
             sender: `${data.name} <${data.email}>`,
-            to: process.env.EMAIL || 'saharsh.shukla2018@vitstudent.ac.in', // receiver email,
+            to: 'saharsh.shukla2018@vitstudent.ac.in', // receiver email,
             subject: data.subject,
             text: `${data.name} <${data.email}> \n${data.message}`,
         };
