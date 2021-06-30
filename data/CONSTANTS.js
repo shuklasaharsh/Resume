@@ -22,6 +22,7 @@ const weatherConstants = {
         break_format: "Protocol://api.weatherstack.com/#Service#?access_key=#API#&query=#Query#"
     }
 }
+
 module.exports = {
     api,
     urlWeather,

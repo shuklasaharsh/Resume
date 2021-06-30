@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
@@ -10,29 +11,37 @@
     <link rel="stylesheet" href="./css/styles.css">
     <link rel="icon" href="./img/weather.png">
     <title>About Me</title>
+
 </head>
 <body class="animate__animated animate__fadeIn animate__delay-0.5s">
 <div class="main-content">
     {{>header}}
     <p id="Name-About">{{name}}</p>
-    <img src="img/image.jpeg" class="personal-portrait">
+    <img src="img/image.jpeg" class="personal-portrait" data-aos="zoom-in">
     <div><hr id="About-Dots"></div>
-    <p id="Greeting">Hi,</p>
-    <p id="Greeting-Subtitle">I am a Data Scientist</p>
-    <p id="Greeting-Subtitle-Subtitle">With a keen interest in Web Development</p>
-    <p id="About-Main">
+    <br>
+    <br>
+    <p id="Greeting" data-aos="zoom-in" data-aos-duration="500">Hi,</p>
+    <p id="Greeting-Subtitle" data-aos="zoom-in" data-aos-duration="1500">I am a Data Scientist</p>
+    <p id="Greeting-Subtitle-Subtitle" data-aos="fade-up" data-aos-duration="3000">With a keen interest in Web Development</p>
+    <p id="About-Main" data-aos-duration="3000">
     <ul>
-    <li>Check out my <a href="https://www.github.com/shuklasaharsh" class="main-links">github</a></li>
+    <li data-aos="zoom-in">Check out my <a href="https://www.github.com/shuklasaharsh" class="main-links">github</a></li>
     <br>
-    <script src="https://gist.github.com/shuklasaharsh/911fe56d1c6e0234a04b2de2ae5719ca.js" id="code-about"></script>
+    <div  data-aos="zoom-in"><script src="https://gist.github.com/shuklasaharsh/911fe56d1c6e0234a04b2de2ae5719ca.js" id="code-about" ></script></div>
+
     <br>
-    <li>Check out my <a href="/projects" class="main-links">Projects</a></li>
+    <li data-aos="zoom-in">Check out my <a href="/projects" class="main-links">Projects</a></li>
     </ul>
     </p>
-    <p align="center"><img src="https://github-readme-streak-stats.herokuapp.com?user=shuklasaharsh&hide_border=true&fire=2389DD&ring=329BDD&theme=light" align="center"></p>
-    <p align="center"><img src="https://github-readme-stats.vercel.app/api?username=shuklasaharsh&theme=light&hide_border=true"></p>
+    <p align="center" data-aos="zoom-in"><img src="https://github-readme-streak-stats.herokuapp.com?user=shuklasaharsh&hide_border=true&fire=2389DD&ring=329BDD&theme=light" align="center"></p>
+    <p align="center" data-aos="zoom-in"><img src="https://github-readme-stats.vercel.app/api?username=shuklasaharsh&theme=light&hide_border=true"></p>
 </div>
 
 {{>footer}}
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init();
+</script>
 </body>
 </html>
