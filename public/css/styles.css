@@ -86,6 +86,10 @@ footer a {
     animation-duration: 2s;
 }
 
+.about-image {
+    width: 70%;
+}
+
 .main-links {
     color: #888888;
     text-decoration: none;
@@ -294,12 +298,16 @@ button {
 @media only screen and (min-width: 569px) and (max-width: 880px) {
     .link-block {
         position: relative;
-        width: 45%;
+        width: 50%;
         max-width: 330px;
         min-height: 375px;
     }
     .link-block .dundas-blue-text-long {
         font-size: 22px;
+    }
+    .about-image {
+        width: 100%;
+        max-width: 330px;
     }
 }
 
@@ -315,6 +323,10 @@ button {
     }
     .link-block .dundas-blue-text-long {
         font-size: 18px;
+    }
+    .about-image {
+        width: 100%;
+        max-width: 330px;
     }
 }
 
